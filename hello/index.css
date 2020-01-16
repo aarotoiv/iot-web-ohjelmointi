@@ -1,0 +1,9 @@
+h1 {
+    font-family: Arial;
+    color: red;
+}
+img {
+    border:solid 1px #000;
+    width: 200px;
+    height: 200px;
+}

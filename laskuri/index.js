@@ -25,6 +25,7 @@ const insertValues = () => {
 const clean = () => {
     for(var i = 0; i < inputs.length; i++) {
         inputs[i].value = "";
+        resultContainers[i].innerHTML = "";
     }
 }
 rollValues();

@@ -1,0 +1,13 @@
+SELECT * from weather ORDER BY date_time desc LIMIT 50;
+
+
+SELECT AVG((data->'temperature')::numeric) FROM weather;
+
+
+SELECT * FROM weather WHERE (data->'temperature') is not null ORDER BY data->'temperature' ASC LIMIT 1;
+
+
+SELECT * FROM weather WHERE (data->'wind_speed') is not null ORDER BY data->'wind_speed' DESC LIMIT 5;
+
+
+SELECT * FROM (SELECT * FROM weather WHERE (data->'temperature') is not null ORDER BY date_time DESC LIMIT 20) weathersub ORDER BY date_time;

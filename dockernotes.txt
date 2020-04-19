@@ -12,3 +12,6 @@ docker rm $(docker ps -a -q)        #poista kaikki kontit
 docker rmi $(docker images -q)      #poista kaikki imaget
 
 
+
+http://iot-webapi-b-42.course.tamk.cloud    #api   
+http://iot-web-b-42.course.tamk.cloud       #front

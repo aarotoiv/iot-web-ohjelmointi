@@ -1,5 +1,5 @@
 variables:
-    REMOTE_HOST: deploy@iot-web-b-42 #own hostname here
+    REMOTE_HOST: deploy@iot-web-b-42
     REMOTE_DIR: weather-app
   
 stages:

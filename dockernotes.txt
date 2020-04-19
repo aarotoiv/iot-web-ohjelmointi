@@ -1,0 +1,14 @@
+systemctl stop docker               #jos dockeri on päällä 
+sudo dockerd                        #käynnistä docker
+
+sudo openvpn --config ~/client.ovpn #openvpn auki
+ssh student@omaip                   #ssh kirjautuminen
+
+docker-compose up -d                #luo kontit
+docker-compose ps                   #näe ajossa olevat kontit
+docker-compose logs -f              #logit
+docker kill $(docker ps -q)         #sulje kaikki kontit
+docker rm $(docker ps -a -q)        #poista kaikki kontit
+docker rmi $(docker images -q)      #poista kaikki imaget
+
+

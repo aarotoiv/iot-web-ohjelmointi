@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Nav from './components/Nav';
 import LastValues from './components/LastValues';
 import './App.css';
+import Temperature from './components/Temperature';
 
 const App = () => {
   const [section, setSection] = useState(0);
@@ -21,6 +22,10 @@ const App = () => {
             section == 0
             ? 
             <LastValues />
+            :
+            section == 1
+            ?
+            <Temperature />
             :
             <div></div> 
           }

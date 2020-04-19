@@ -3,6 +3,10 @@ import Nav from './components/Nav';
 import LastValues from './components/LastValues';
 import './App.css';
 import Temperature from './components/Temperature';
+import HumidityOut from './components/HumidityOut';
+import Pressure from './components/Pressure';
+import WindSpeed from './components/WindSpeed';
+import Any from './components/Any';
 
 const App = () => {
   const [section, setSection] = useState(0);
@@ -27,7 +31,23 @@ const App = () => {
             ?
             <Temperature />
             :
-            <div></div> 
+            section == 2
+            ?
+            <HumidityOut />
+            :
+            section == 3
+            ?
+            <Pressure />
+            :
+            section == 4
+            ?
+            <WindSpeed />
+            :
+            section == 5
+            ?
+            <Any />
+            :
+            <></>
           }
         </div>
     </div>

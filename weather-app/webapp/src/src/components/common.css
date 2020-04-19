@@ -23,7 +23,7 @@
 .chart-container {
     width: 800px;
 }
-.change-interval {
+.change-interval, .change-accessor {
     height: 100px;
     width: 200px;
 }

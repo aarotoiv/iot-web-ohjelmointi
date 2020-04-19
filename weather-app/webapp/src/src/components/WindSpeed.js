@@ -1,17 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import './common.css';
 import CommonTable from './CommonTable';
-import ChangeInterval from './ChangeInterval';
 import { getData } from '../util';
-import { CommonBarChart } from './CommonChart';
+import { SpeedoMeter } from './CommonChart';
 
-const Temperature = () => {
+const WindSpeed = () => {
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        getData("temperature", 24)
+        getData("latest", "wind_speed")
         .then(data => {
+            console.log(data);
             setData(data);
             setLoaded(true);
         })
@@ -21,13 +21,12 @@ const Temperature = () => {
     }, []);
     return (
         <div className="content">
-            <p className="title">TEMPERATURE</p>
+            <p className="title">Wind Speed</p>
             <div className="content-inner">
                 {loaded ? 
                     <>
-                        <CommonTable data={data} accessor="temperature" />
-                        <ChangeInterval changeInterval={(val) => getData("temperature", val).then(res => setData(res)).catch(e => console.log(e))}/>
-                        <CommonBarChart data={data.map(item => {return item.temperature})} labels={data.map(item => {return item.date_time})} title="Temperature"/>
+                        <CommonTable data={data} accessor="wind_speed" />
+                        <SpeedoMeter data={[100]} labels={data.map(item => {return item.date_time})} title="Wind Speed"/>
                     </>
                 : <></>}
             </div>
@@ -35,4 +34,4 @@ const Temperature = () => {
     );
 };
 
-export default Temperature;
+export default WindSpeed;

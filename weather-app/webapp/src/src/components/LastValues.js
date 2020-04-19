@@ -38,7 +38,7 @@ const LastValues = () => {
 
     return (
         <div className="content">
-            <p className="title">Last Values</p>
+            <p className="title">LAST VALUES</p>
             <div className="content-inner">
                 <LastTenTable data={lastTen} />
             </div>

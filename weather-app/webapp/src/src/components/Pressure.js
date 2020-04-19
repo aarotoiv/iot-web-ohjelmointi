@@ -3,14 +3,14 @@ import './common.css';
 import CommonTable from './CommonTable';
 import ChangeInterval from './ChangeInterval';
 import { getData } from '../util';
-import { CommonBarChart } from './CommonChart';
+import { CommonLineChart } from './CommonChart';
 
-const Temperature = () => {
+const Pressure = () => {
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        getData("temperature", 24)
+        getData("pressure", 24)
         .then(data => {
             setData(data);
             setLoaded(true);
@@ -21,13 +21,13 @@ const Temperature = () => {
     }, []);
     return (
         <div className="content">
-            <p className="title">TEMPERATURE</p>
+            <p className="title">PRESSURE</p>
             <div className="content-inner">
                 {loaded ? 
                     <>
-                        <CommonTable data={data} accessor="temperature" />
-                        <ChangeInterval changeInterval={(val) => getData("temperature", val).then(res => setData(res)).catch(e => console.log(e))}/>
-                        <CommonBarChart data={data.map(item => {return item.temperature})} labels={data.map(item => {return item.date_time})} title="Temperature"/>
+                        <CommonTable data={data} accessor="pressure" />
+                        <ChangeInterval changeInterval={(val) => getData("pressure", val).then(res => setData(res)).catch(e => console.log(e))}/>
+                        <CommonLineChart data={data.map(item => {return item.pressure})} labels={data.map(item => {return item.date_time})} title="Pressure"/>
                     </>
                 : <></>}
             </div>
@@ -35,4 +35,4 @@ const Temperature = () => {
     );
 };
 
-export default Temperature;
+export default Pressure;

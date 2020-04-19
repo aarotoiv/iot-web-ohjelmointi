@@ -1,27 +1,24 @@
 version: '3'
 services:
+  #webapp:
+  #  image: "${WEBAPP_IMAGE}"
+  #  ports:
+  #    - "80:80"
+  #  restart: always
   api:
-    build:
-      context: ./
-      dockerfile: .dockerfiles/apiDev
+    image: "${API_IMAGE}"
     ports:
       - "9000:9000"
-    volumes:
-      - ./api:/opt/app
     restart: always
-
   db:
-    build:
-      context: ./
-      dockerfile: .dockerfiles/db
+    image: "${DB_IMAGE}"
     ports:
       - "5432:5432"
     volumes:
       - /var/lib/postgresql/data
     restart: always
-
   adminer:
     image: adminer
     restart: always
     ports:
-      - 8080:8080
+      - "8080:8080"

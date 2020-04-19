@@ -2,7 +2,7 @@ import React from 'react';
 
 const CommonTable = ({data, accessor}) => {
     return (
-        <table>
+        <table className="common-table">
             <tbody>
                 <tr><th>Date</th><th>Time</th><th>Value</th></tr>
                 {data.map(item => {

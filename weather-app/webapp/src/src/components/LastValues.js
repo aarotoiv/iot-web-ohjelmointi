@@ -39,7 +39,9 @@ const LastValues = () => {
     return (
         <div className="content">
             <p className="title">Last Values</p>
-            <LastTenTable data={lastTen} />
+            <div className="content-inner">
+                <LastTenTable data={lastTen} />
+            </div>
         </div>
     );
 };

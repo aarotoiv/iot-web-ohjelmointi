@@ -1,0 +1,26 @@
+.nav {
+    width: 90%;
+    height: 70px;
+    background: #4d4657;
+    position: relative;
+    border-radius: 5px;
+    margin: 100px auto;
+    overflow:hidden;
+}
+.navBtn {
+    font-family: 'Source Code Pro', monospace;
+    position:relative;
+    width: 16.666%;
+    height: 100%;
+    background-color: #4d4657;
+    border:none;
+    color: #fff;
+    font-size: 15px;
+    overflow:hidden;
+    cursor:pointer;
+    transition: 0.2s ease-in-out;
+    outline:none;
+}
+.navBtn:hover {
+    background-color: #2b2534;
+}

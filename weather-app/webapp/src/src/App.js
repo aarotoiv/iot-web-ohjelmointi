@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import Nav from './components/Nav';
+import LastValues from './components/LastValues';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [section, setSection] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+        <Nav 
+          section={section}
+          lv={() => setSection(0)}
+          temp={() => setSection(1)}
+          hum={() => setSection(2)}
+          pres={() => setSection(3)}
+          wind={() => setSection(4)}
+          free={() => setSection(5)}
+        />
+        <div className="content-container">
+          {
+            section == 0
+            ? 
+            <LastValues />
+            :
+            <div></div> 
+          }
+        </div>
     </div>
+    
   );
-}
+};
 
 export default App;

@@ -1,6 +1,10 @@
 FROM node:10-slim
 RUN mkdir -p /app
 WORKDIR /app
-COPY ./webapp/build /app
+RUN cd webapp/src
+RUN npm i
+RUN npm start build
+RUN cd ../.. 
+COPY ./webapp/src/build /app
 FROM nginx
 COPY --from=0 /app /usr/share/nginx/html
